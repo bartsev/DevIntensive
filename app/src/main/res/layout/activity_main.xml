@@ -1,16 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.activities.MainActivity">
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ui.activities.MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/grey_dark"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/title_box"
+                android:layout_weight="1">
+                <TextView
+                    style="@style/title.title_large"
+                    android:text="5"/>
+                <TextView
+                    style="@style/title"
+                    android:text="Рейтинг"/>
+            </LinearLayout>
+
+            <View style="@style/vert_line"/>
+
+            <LinearLayout
+                style="@style/title_box"
+                android:layout_weight="2">
+                <TextView
+                    style="@style/title.title_large"
+                    android:text="5"/>
+                <TextView
+                    style="@style/title"
+                    android:text="Написано строк кода"/>
+            </LinearLayout>
+
+            <View style="@style/vert_line"/>
+
+            <LinearLayout
+                style="@style/title_box"
+                android:layout_weight="1">
+                <TextView
+                    style="@style/title.title_large"
+                    android:text="5"/>
+                <TextView
+                    style="@style/title"
+                    android:text="Проектов"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/line_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_call_black_24dp"/>
+
+            <LinearLayout style="@style/edit_container">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                   <EditText
+                       android:id="@+id/phone_et"
+                       style="@style/editor"
+                       android:hint="Мобильный"
+                       android:text="+7 (927)123-55-66"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/icon.right"
+                android:src="@drawable/ic_phone_in_talk_black_24dp"/>
+        </LinearLayout>
+
+        <View style="@style/horz_line"/>
+
+        <LinearLayout style="@style/line_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_email_black_24dp"/>
+
+            <LinearLayout style="@style/edit_container">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/email_et"
+                        style="@style/editor"
+                        android:hint="E-mail"
+                        android:text="shurets@yandex.ru"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/icon.right"
+                android:src="@drawable/ic_send_black_24dp"/>
+        </LinearLayout>
+
+        <View style="@style/horz_line"/>
+
+        <LinearLayout style="@style/line_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_vk_24dp"/>
+
+            <LinearLayout style="@style/edit_container">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/vk_et"
+                        style="@style/editor"
+                        android:hint="Профиль в VK"
+                        android:text="vk.com/id1234518"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/icon.right"
+                android:src="@drawable/ic_visibility_black_24dp"/>
+        </LinearLayout>
+
+        <View style="@style/horz_line"/>
+
+        <LinearLayout style="@style/line_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_octocat_24dp"/>
+
+            <LinearLayout style="@style/edit_container">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/github_et"
+                        style="@style/editor"
+                        android:hint="Репозиторий"
+                        android:text="github.com/shurets/DevIntensive"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/icon.right"
+                android:src="@drawable/ic_visibility_black_24dp"/>
+        </LinearLayout>
+
+        <View style="@style/horz_line"/>
+
+        <LinearLayout style="@style/line_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_account_circle_black_24dp"/>
+
+            <LinearLayout style="@style/edit_container">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <EditText
+                        android:id="@+id/about_et"
+                        style="@style/editor"
+                        android:hint="О себе"
+                        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus rutrum, erat nulla fermentum diam,
+                        at nonummy quam ante ac quam. Maecenas urna purus, fermentum id, molestie in,
+                        commodo porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus
+                        quis ligula. Phasellus tristique purus a augue condimentum adipiscing.
+                        Aenean sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate
+                        at, odio. Donec et ipsum et sapien vehicula nonummy. Suspendisse potenti.
+                        Fusce varius urna id quam. Sed neque mi, varius eget, tincidunt nec,
+                        suscipit id, libero. In eget purus. Vestibulum ut nisl. Donec eu mi sed
+                        turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et,
+                        fermentum ut, sapien. Fusce metus mi, eleifend sollicitudin, molestie id,
+                        varius et, nibh. Donec nec libero"
+                        android:inputType="textMultiLine"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
