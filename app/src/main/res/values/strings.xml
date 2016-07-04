@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Барцев Александр</string>
+    <string name="counter_left">4</string>
+    <string name="title_left">Рейтинг</string>
+    <string name="counter_center">5</string>
+    <string name="title_center">Написано строк кода</string>
+    <string name="counter_right">6</string>
+    <string name="title_right">Проектов</string>
+    <string name="hint_phone">Мобильный</string>
+    <string name="phone">+7 (927)123-55-66</string>
+    <string name="hint_email">E-mail</string>
+    <string name="email">shurets@yandex.ru</string>
+    <string name="hint_vk_profile">Профиль в VK</string>
+    <string name="vk_profile">vk.com/id1234518</string>
+    <string name="hint_repository">Репозиторий</string>
+    <string name="repository">github.com/shurets/DevIntensive</string>
+    <string name="hint_about_me">"О себе"</string>
+    <string name="about_me"></string>
 </resources>
