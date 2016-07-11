@@ -14,6 +14,10 @@
     <string name="vk_profile">vk.com/id1234518</string>
     <string name="hint_repository">Репозиторий</string>
     <string name="repository">github.com/shurets/DevIntensive</string>
-    <string name="hint_about_me">"О себе"</string>
+    <string name="hint_about_me">О себе</string>
     <string name="about_me"></string>
+    <string name="user_profile_dialog_gallery">Загрузить из галереи</string>
+    <string name="user_profile_dialog_camera">Сделать снимок</string>
+    <string name="user_profile_dialog_cancel">Отмена</string>
+    <string name="user_profile_dialog_title">Изменить фотографию профиля</string>
 </resources>
