@@ -20,4 +20,14 @@
     <string name="user_profile_dialog_camera">Сделать снимок</string>
     <string name="user_profile_dialog_cancel">Отмена</string>
     <string name="user_profile_dialog_title">Изменить фотографию профиля</string>
+
+    <!-- Font family -->
+    <string name="ff_regular">sans-serif</string>
+    <string name="ff_medium">sans-serif-medium</string>
+
+    <string name="auth.authorization_enter">войти</string>
+    <string name="auth.email">Введите e-mail</string>
+    <string name="auth.password">Введите пароль</string>
+    <string name="auth.login">Войти</string>
+    <string name="auth.remember">Забыли пароль?</string>
 </resources>

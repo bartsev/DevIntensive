@@ -1,6 +1,5 @@
 package com.softdesign.devintensive.ui.activities;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -24,7 +23,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -33,6 +31,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.softdesign.devintensive.R;
 import com.softdesign.devintensive.data.managers.DataManager;
@@ -45,7 +44,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.jar.Manifest;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -62,8 +60,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private AppBarLayout mAppBarLayout;
     private ImageView mProfileImage;
     private ImageView mPhoneImage, mEmailImage, mVkImage, mGithubImage, mAboutImage;
+    private TextView mHeaderUserName,mHeaderUserEmail;
+
     private EditText mUserPhone, mUserMail, mUserVk, mUserGit, mUserBio;
     private List<EditText> mUserInfoViews;
+
+    private TextView mUserValueRating, mUserValueCodeLines, mUserValueProjects;
+    private List<TextView> mUserValuesViews;
 
     private AppBarLayout.LayoutParams mAppBarParams = null;
     private File mPhotoFile = null;
@@ -90,6 +93,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mVkImage = (ImageView) findViewById(R.id.vk_img);
         mGithubImage = (ImageView) findViewById(R.id.github_img);
         mAboutImage  = (ImageView) findViewById(R.id.about_img);
+        mHeaderUserName = (TextView) findViewById(R.id.user_name_txt);
+        mHeaderUserEmail = (TextView) findViewById(R.id.user_email_txt);
 
         mUserPhone = (EditText) findViewById(R.id.phone_et);
         mUserMail = (EditText) findViewById(R.id.email_et);
@@ -103,17 +108,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mUserInfoViews.add(mUserGit);
         mUserInfoViews.add(mUserBio);
 
+        mUserValueRating = (TextView) findViewById(R.id.user_info_rait_txt);
+        mUserValueCodeLines = (TextView) findViewById(R.id.user_info_code_lines_txt);
+        mUserValueProjects = (TextView) findViewById(R.id.user_info_projects_txt);
+        mUserValuesViews = new ArrayList<>();
+        mUserValuesViews.add(mUserValueRating);
+        mUserValuesViews.add(mUserValueCodeLines);
+        mUserValuesViews.add(mUserValueProjects);
+
         mFab.setOnClickListener(this);
         mProfilePlaceholder.setOnClickListener(this);
         mPhoneImage.setOnClickListener(this);
         mEmailImage.setOnClickListener(this);
         mVkImage.setOnClickListener(this);
         mGithubImage.setOnClickListener(this);
-        mAboutImage.setOnClickListener(this);
 
         setupToolbar();
         setupDrawer();
-        loadUserInfoValue();
+        initUserFields();
+        initUserInfoValue();
+
         Picasso.with(this)
                 .load(mDataManager.getPreferencesManager().loadUserPhoto())
                 .placeholder(R.drawable.user_photo)  // TODO: 07.07.2016 placeholder from case
@@ -154,7 +168,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "OnPause");
-        saveUserInfoValue();
+        saveUserFields();
     }
 
     @Override
@@ -201,9 +215,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.github_img:
                 openUrl(mUserGit.getText().toString());
-                break;
-            case R.id.about_img:
-                showLoginActivity();
                 break;
         }
     }
@@ -275,7 +286,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 userValue.setEnabled(false);
                 userValue.setFocusable(false);
                 userValue.setFocusableInTouchMode(false);
-                saveUserInfoValue();
+                saveUserFields();
             }
             hideProfilePlaceholder();
             unlockToolbar();
@@ -283,19 +294,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    private void loadUserInfoValue(){
+    private void initUserFields(){
         List<String> userData = mDataManager.getPreferencesManager().loadUserProfileData();
         for(int i = 0; i < userData.size(); i++){
             mUserInfoViews.get(i).setText(userData.get(i));
         }
     }
 
-    private void saveUserInfoValue(){
+    private void saveUserFields(){
         List<String> userData = new ArrayList<>();
         for(EditText userFieldView : mUserInfoViews){
             userData.add(userFieldView.getText().toString());
         }
         mDataManager.getPreferencesManager().saveUserProfileData(userData);
+    }
+
+    private void initUserInfoValue() {
+        List<String> userData = mDataManager.getPreferencesManager().loadUserProfileValues();
+        for (int i = 0; i < 3; i++) {
+            mUserValuesViews.get(i).setText(userData.get(i));
+        }
+        mUserPhone.setText(userData.get(5));
+        mUserMail.setText(userData.get(6));
+        mUserVk.setText(userData.get(7));
+        mUserGit.setText(userData.get(8));
+        mUserBio.setText(userData.get(9));
+//        mHeaderUserName.setText(userData.get(3) + " " + userData.get(4));
+//        mHeaderUserEmail.setText(userData.get(6));
+
     }
 
     private void loadPhotoFromGallery(){
@@ -447,11 +473,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void openUrl(String url){
         Uri address = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, address);
-        startActivity(intent);
-    }
-
-    private void showLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
