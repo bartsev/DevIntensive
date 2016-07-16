@@ -27,6 +27,8 @@ public interface ConstantManager {
     String USER_GIT_VALUE = "USER_GIT_VALUE";
     String USER_BIO_VALUE = "USER_BIO_VALUE";
 
+    String PARCELABLE_KEY = "PARCELABLE_KEY";
+
     int LOAD_PROFILE_PHOTO = 1;
     int REQUEST_CAMERA_PICTURE = 99;
     int REQUEST_GALLERY_PICTURE = 88;
