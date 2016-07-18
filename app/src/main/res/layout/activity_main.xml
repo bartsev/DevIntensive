@@ -29,12 +29,12 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/profile_image_size"
+                android:layout_height="@dimen/profile_image_size_256"
                 android:fitsSystemWindows="true">
                 <ImageView
                     android:id="@+id/user_photo_img"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/profile_image_size"
+                    android:layout_height="@dimen/profile_image_size_256"
                     android:scaleType="centerCrop"
                     android:src="@drawable/user_photo"/>
 

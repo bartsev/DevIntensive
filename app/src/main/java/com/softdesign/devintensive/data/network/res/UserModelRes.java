@@ -132,6 +132,10 @@ public class UserModelRes {
         public String getBio() {
             return bio;
         }
+
+        public String getPhoto() {
+            return photo;
+        }
     }
 
     public class ProfileValues {
